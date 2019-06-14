@@ -1,0 +1,113 @@
+<div>
+  <app-header></app-header>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="abierto-tab" data-toggle="tab" href="#abierto" role="tab" aria-controls="abierto" aria-selected="true">Abierto</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pendiente-tab" data-toggle="tab" href="#pendiente" role="tab" aria-controls="pendiene" aria-selected="false">Pendiente</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="enproceso-tab" data-toggle="tab" href="#enproceso" role="tab" aria-controls="enproceso" aria-selected="false">En Proceso</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="resuelto-tab" data-toggle="tab" href="#resuelto" role="tab" aria-controls="resuelto" aria-selected="false">Resuelto</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="cerrado-tab" data-toggle="tab" href="#cerrado" role="tab" aria-controls="cerrado" aria-selected="false">Cerrado</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="todos-tab" data-toggle="tab" href="#todos" role="tab" aria-controls="todos" aria-selected="false">Ver Todos</a>
+    </li>
+
+</ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="abierto" role="tabpanel" aria-labelledby="abierto-tab">
+
+      <div *ngFor = "let ticket of TicketsAbiertos" class="list-group">
+
+        <a class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><strong>{{ ticket.id }}</strong> {{ ticket.Titulo }}</h5>
+            <small class="text-muted">{{ ticket.FechaCreacion }}</small>
+          </div>
+          <p class="mb-1">{{ ticket.Descripcion }}</p>
+          <small class="text-muted">{{ cambiarEstado(ticket.Estado) }}</small>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="tab-pane fade" id="pendiente" role="tabpanel" aria-labelledby="pendiente-tab">
+        <div *ngFor = "let ticket of TicketsPendientes" class="list-group">
+
+            <a class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><strong>{{ ticket.id }}</strong> {{ ticket.Titulo }}</h5>
+                <small class="text-muted">{{ ticket.FechaCreacion }}</small>
+              </div>
+              <p class="mb-1">{{ ticket.Descripcion }}</p>
+              <small class="text-muted">{{ cambiarEstado(ticket.Estado) }}</small>
+            </a>
+          </div>
+    </div>
+
+    <div class="tab-pane fade" id="enproceso" role="tabpanel" aria-labelledby="enproceso-tab">
+        <div *ngFor = "let ticket of TicketsEnProceso" class="list-group">
+
+            <a class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><strong>{{ ticket.id }}</strong> {{ ticket.Titulo }}</h5>
+                <small class="text-muted">{{ ticket.FechaCreacion }}</small>
+              </div>
+              <p class="mb-1">{{ ticket.Descripcion }}</p>
+              <small class="text-muted">{{ cambiarEstado(ticket.Estado) }}</small>
+            </a>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="resuelto" role="tabpanel" aria-labelledby="resuelto-tab">
+        <div *ngFor = "let ticket of TicketsResueltos" class="list-group">
+
+            <a class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><strong>{{ ticket.id }}</strong> {{ ticket.Titulo }}</h5>
+                <small class="text-muted">{{ ticket.FechaCreacion }}</small>
+              </div>
+              <p class="mb-1">{{ ticket.Descripcion }}</p>
+              <small class="text-muted">{{ cambiarEstado(ticket.Estado) }}</small>
+            </a>
+          </div>
+    </div>
+    <div class="tab-pane fade" id="cerrado" role="tabpanel" aria-labelledby="cerrado-tab">
+        <div *ngFor = "let ticket of TicketsCerrados" class="list-group">
+
+            <a class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><strong>{{ ticket.id }}</strong> {{ ticket.Titulo }}</h5>
+                <small class="text-muted">{{ ticket.FechaCreacion }}</small>
+              </div>
+              <p class="mb-1">{{ ticket.Descripcion }}</p>
+              <small class="text-muted">{{ cambiarEstado(ticket.Estado) }}</small>
+            </a>
+          </div>
+    </div>
+
+    <div class="tab-pane fade" id="todos" role="tabpanel" aria-labelledby="todos-tab">
+        <div *ngFor = "let ticket of TodosLosTickets" class="list-group">
+
+            <a class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><strong>{{ ticket.id }}</strong> {{ ticket.Titulo }}</h5>
+                <small class="text-muted">{{ ticket.FechaCreacion }}</small>
+              </div>
+              <p class="mb-1">{{ ticket.Descripcion }}</p>
+              <small class="text-muted">{{ cambiarEstado(ticket.Estado) }}</small>
+            </a>
+          </div>
+    </div>
+
+</div>
