@@ -16,7 +16,7 @@
 #### Para el Frontend se ejecutan los siguientes comandos.
 
 1. Dentro del directorio /Frontend ejecutar `npm install`
-2. Luego ejecutar el comando `ńg serve`
+2. Luego ejecutar el comando `ng serve`
 3. Una vez inicializado el servidor acceder a la url http://localhost:4200
 
 #### Registro de Usuarios
